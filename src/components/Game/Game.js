@@ -28,6 +28,7 @@ function Game() {
     event.preventDefault();
     result = checkGuess(guess, answer);
     console.log(result)
+    setGuess("")
   }
 
   return (
