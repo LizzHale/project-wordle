@@ -12,7 +12,6 @@ console.info({ answer });
 
 function Game() {
   const [guess, setGuess] = useState("")
-  console.info({guess})
 
   const handleChange = (event) => {
     const inputValue = event.target.value;
@@ -26,6 +25,7 @@ function Game() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log({ guess })
     result = checkGuess(guess, answer);
     console.log(result)
     setGuess("")
