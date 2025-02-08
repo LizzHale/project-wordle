@@ -13,6 +13,17 @@ function Game() {
   const [guess, setGuess] = useState("")
   console.info({guess})
 
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    setGuess(inputValue.toUpperCase());
+
+    if (!/^[A-Za-z0-9]{5}$/.test(inputValue)) {
+      e.target.setCustomValidity("Must be exactly 5 characters.");
+    } else {
+      e.target.setCustomValidity("");
+    }
+  };
+
   return (
     <form
       className="guess-input-wrapper"
@@ -23,7 +34,7 @@ function Game() {
       }}
     >
       <label htmlFor="guess-input">Enter guess:</label>
-      <input id="guess-input" pattern="^[a-zA-Z]{5}$" type="text" value={guess} onChange={(event) => {setGuess(event.target.value)}}/>
+      <input id="guess-input" type="text" value={guess} maxLength="5" pattern="^[A-Za-z0-9]{5}$" required onChange={handleChange}/>
     </form>
   )
 }
