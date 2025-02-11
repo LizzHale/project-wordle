@@ -1,13 +1,18 @@
 import React from 'react';
+import { range } from '../../utils';
 
 function GuessResults({ guessList }) {
+  console.log(guessList)
+
   return (
     <div className="guess-results">
-      <ol style={{listStyleType: 'none'}}>
-        {guessList.map(({ id, name }) => (
-          <li key={id}>{name}</li>
-        ))}
-      </ol>
+      {range(0,6).map((y) => (
+        <p class="guess">
+          {range(0,5).map((x) => (
+            <span class="cell"></span>
+          ))}
+        </p>
+      ))}
     </div>
   )
 }
