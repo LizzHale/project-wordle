@@ -2,14 +2,12 @@ import React from 'react';
 import { range } from '../../utils';
 
 function GuessResults({ guessList }) {
-  console.log(guessList)
-
   return (
     <div className="guess-results">
       {range(0,6).map((y) => (
-        <p class="guess">
+        <p className="guess">
           {range(0,5).map((x) => (
-            <span class="cell"></span>
+            <span className="cell">{guessList[y] && guessList[y].result[x] && guessList[y].result[x].letter}</span>
           ))}
         </p>
       ))}
