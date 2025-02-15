@@ -2,11 +2,6 @@ import React from 'react';
 import { range } from '../../utils';
 
 function GuessResults({ guessList }) {
-  const rowKey = ({ rowIndex }) => {
-    console.log(`empty-guess-row${rowIndex}`)
-    return `empty-guess-row${rowIndex}`
-  };
-
   return (
     <div className="guess-results">
       {range(0,6).map((y) => (
